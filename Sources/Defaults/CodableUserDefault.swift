@@ -7,10 +7,10 @@
 
 import Foundation
 
-@propertyWrapper struct CodableUserDefault<Value: Codable> {
+@propertyWrapper public struct CodableUserDefault<Value: Codable> {
   
   /// The default's wrapped value.
-  var wrappedValue: Value {
+  public var wrappedValue: Value {
     get {
       do {
         return try store.decodableValue(forKey: key) ?? defaultValue
@@ -49,7 +49,7 @@ import Foundation
   
   // MARK: Initializers
   
-  init(wrappedValue defaultValue: Value, _ key: String, store: UserDefaults? = nil) {
+  public init(wrappedValue defaultValue: Value, _ key: String, store: UserDefaults? = nil) {
     self.defaultValue = defaultValue
     self.key = key
     self.store = store ?? .standard
@@ -57,7 +57,7 @@ import Foundation
 }
 
 extension CodableUserDefault where Value: ExpressibleByNilLiteral {
-  init(_ key: String, store: UserDefaults? = nil) {
+  public init(_ key: String, store: UserDefaults? = nil) {
     self.init(wrappedValue: nil, key, store: store)
   }
 }
