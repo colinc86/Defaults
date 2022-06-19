@@ -1,5 +1,5 @@
 //
-//  RawUserDefault.swift
+//  RawStringUserDefault.swift
 //  Defaults
 //
 //  Created by Colin Campbell on 4/22/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-@propertyWrapper public struct RawUserDefault<Value: RawRepresentable> where Value.RawValue == String {
+@propertyWrapper public struct RawStringUserDefault<Value: RawRepresentable> where Value.RawValue == String {
   
   /// The default's wrapped value.
   public var wrappedValue: Value {
@@ -45,7 +45,7 @@ import Foundation
   }
 }
 
-extension RawUserDefault where Value: ExpressibleByNilLiteral {
+extension RawStringUserDefault where Value: ExpressibleByNilLiteral {
   public init(_ key: String, store: UserDefaults? = nil) {
     self.init(wrappedValue: nil, key, store: store)
   }
