@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
 
-@propertyWrapper public struct CodableUserDefault<Value: Codable> {
+@propertyWrapper public struct CodableUserDefault<Value: Codable>: DynamicProperty {
   
   /// The default's wrapped value.
   public var wrappedValue: Value {

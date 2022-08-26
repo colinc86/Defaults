@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
 
-@propertyWrapper public struct RawStringUserDefault<Value: RawRepresentable> where Value.RawValue == String {
+@propertyWrapper public struct RawStringUserDefault<Value: RawRepresentable>: DynamicProperty where Value.RawValue == String {
   
   /// The default's wrapped value.
   public var wrappedValue: Value {

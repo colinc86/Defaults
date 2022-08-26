@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftUI
 
-@propertyWrapper public struct UserDefault<Value> {
+@propertyWrapper public struct UserDefault<Value>: DynamicProperty {
   
   /// The default's wrapped value.
   public var wrappedValue: Value {
